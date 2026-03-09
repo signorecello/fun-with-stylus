@@ -1,0 +1,10 @@
+target/
+.env.*
+!.env.example
+.config
+*/.config
+.DS_Store
+*.pptx
+
+# local notes
+notes.md

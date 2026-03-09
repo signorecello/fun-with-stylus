@@ -1,0 +1,25 @@
+[workspace]
+
+[package]
+name = "escrow"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+[dependencies]
+stylus-sdk = "0.10.0"
+
+[features]
+export-abi = ["stylus-sdk/export-abi"]
+
+[profile.release]
+codegen-units = 1
+strip = true
+lto = true
+panic = "abort"
+
+[lints.rust.unexpected_cfgs]
+level = "allow"
+check-cfg = ['cfg(feature, values("contract-client-gen"))']
